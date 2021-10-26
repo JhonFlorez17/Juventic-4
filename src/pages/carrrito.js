@@ -3,7 +3,17 @@ import "../App.css";
 
 class Carrito extends Component {
   render() {
-    return <h1>Carrito</h1>;
+    return (
+      <div className="all-page-title page-breadcrumb-two">
+        <div className="container text-center">
+          <div className="row">
+            <div className="col-lg-12">
+              <h1>Carrito</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 

@@ -4,6 +4,9 @@ import App from "./App";
 import Menu from "./pages/menu";
 import Home from "./pages/home";
 import About from "./pages/about";
+import Servicios from "./pages/servicios";
+import Reservas from "./pages/reservas";
+import Carrito from "./pages/carrrito";
 import {
   BrowserRouter as Routers,
   Switch,
@@ -19,13 +22,11 @@ class Router extends Component {
           <Redirect from="/" to="/home" />
           <Switch>
             <Route path="/menu" component={Menu}></Route>
-            <Route exact path="/" component={Home}></Route>
             <Route path="/home" component={Home}></Route>
             <Route path="/about" component={About}></Route>
-            {/*  
-            <Route path="/reserva" component={}></Route>
-            <Route path="/carrito" component={}></Route>
-            <Route path="/About" component={}></Route> */}
+            <Route path="/reserva" component={Reservas}></Route>
+            <Route path="/carrito" component={Carrito}></Route>
+            <Route path="/servicios" component={Servicios}></Route>
           </Switch>
         </App>
       </Routers>

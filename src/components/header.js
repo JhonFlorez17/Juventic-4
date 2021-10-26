@@ -1,14 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
-import { Link, Route } from "react-router-dom";
-import {
-  Navbar,
-  Container,
-  Nav,
-  NavLink,
-  NavbarBrand,
-  NavDropdown,
-} from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
 class Header extends Component {
@@ -48,13 +40,19 @@ class Header extends Component {
                   </LinkContainer>
                 </Nav.Item>
                 <Nav.Item as="li">
-                  <Nav.Link>Servicios</Nav.Link>
+                  <LinkContainer to="/servicios">
+                    <Nav.Link>Servicios</Nav.Link>
+                  </LinkContainer>
                 </Nav.Item>
                 <Nav.Item as="li">
-                  <Nav.Link>Reservas</Nav.Link>
+                  <LinkContainer to="/reserva">
+                    <Nav.Link>Reservas</Nav.Link>
+                  </LinkContainer>
                 </Nav.Item>
                 <Nav.Item as="li">
-                  <Nav.Link>Carrito</Nav.Link>
+                  <LinkContainer to="/carrito">
+                    <Nav.Link>Carrito</Nav.Link>
+                  </LinkContainer>
                 </Nav.Item>
               </Nav>
             </Navbar.Collapse>
