@@ -1,0 +1,38 @@
+/*------------------------------------------------------------------
+    About
+-------------------------------------------------------------------*/
+
+.about-section-box {
+  padding: 70px 0px;
+  background: #ffffff url("about-bg.jpg") no-repeat bottom center;
+  background-size: cover;
+}
+.about-section-box .img-fluid {
+  box-shadow: 20px 20px 0px #d65106;
+}
+.inner-column {
+  text-align: left;
+}
+.inner-column h1 {
+  font-family: "Rubik", sans-serif;
+  font-size: 30px;
+  color: #010101;
+  font-weight: 500;
+}
+.inner-column h1 span {
+  color: #d65106;
+}
+.inner-column h4 {
+  font-size: 16px;
+  font-weight: 500;
+}
+.inner-column p {
+  font-size: 18px;
+  color: #222222;
+}
+.inner-column .btn-outline-new-white {
+  color: #fff;
+}
+.inner-column .btn-outline-new-white:hover {
+  color: #ffffff;
+}
