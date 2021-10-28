@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "../App.css";
-import "./info.css";
+import "./aboutindex.css";
 
-class Info extends Component {
+class aboutindex extends Component {
   render() {
     return (
       <div className="about-section-box">
@@ -43,4 +43,4 @@ class Info extends Component {
   }
 }
 
-export default Info;
+export default aboutindex;

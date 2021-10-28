@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../App.css";
 import Carousel_home from "../components/carousel";
-import Info from "../components/info";
+import Info from "../components/aboutindex";
 import Menu from "../components/menu";
 import Servicios from "../components/servicios";
 import Comentarios from "../components/comentarios";
