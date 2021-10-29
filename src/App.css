@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900");
+
 /*------------------------------------------------------------------
     SKELETON
 -------------------------------------------------------------------*/
@@ -246,6 +248,7 @@ button:focus {
 
 .page-breadcrumb-two {
   padding: 250px 0 150px;
+  background: url("all-bg.jpg") no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position: 0 0;

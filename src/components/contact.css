@@ -12,7 +12,7 @@
   overflow: hidden;
 }
 
-.contact-imfo-box i {
+.contact-imfo-box svg {
   display: block;
   float: left;
   width: 60px;
@@ -27,6 +27,7 @@
   -ms-border-radius: 4px;
   border-radius: 4px;
   margin-right: 20px;
+  padding: 14px;
 }
 .contact-imfo-box h4 {
   margin: 0px;
@@ -41,4 +42,26 @@
   margin: 0px;
   color: #ffffff;
   font-weight: 300;
+}
+
+.svg-inline--fa.fa-w-20,
+.svg-inline--fa.fa-w-12,
+.svg-inline--fa.fa-w-16,
+.svg-inline--fa.fa-w-18 {
+  width: 2em;
+}
+
+.arrow-right {
+  position: relative;
+}
+.arrow-right::before {
+  position: absolute;
+  font-family: "Font Awesome 5 Free";
+  content: "\f101";
+  font-weight: 600;
+  right: 0 px;
+  top: 0;
+  color: #fff;
+  font-size: 60px;
+  line-height: 60px;
 }

@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import "../App.css";
 import "./footer.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faTwitter,
+  faLinkedin,
+  faGooglePlus,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
 
 class Footer extends Component {
   render() {
@@ -62,27 +70,27 @@ class Footer extends Component {
                 <ul className="list-inline f-social">
                   <li className="list-inline-item">
                     <a href="#">
-                      <i className="fa fa-facebook" aria-hidden="true" />
+                      <FontAwesomeIcon icon={faFacebook} />
                     </a>
                   </li>
                   <li className="list-inline-item">
                     <a href="#">
-                      <i className="fa fa-twitter" aria-hidden="true" />
+                      <FontAwesomeIcon icon={faTwitter} />
                     </a>
                   </li>
                   <li className="list-inline-item">
                     <a href="#">
-                      <i className="fa fa-linkedin" aria-hidden="true" />
+                      <FontAwesomeIcon icon={faLinkedin} />
                     </a>
                   </li>
                   <li className="list-inline-item">
                     <a href="#">
-                      <i className="fa fa-google-plus" aria-hidden="true" />
+                      <FontAwesomeIcon icon={faGooglePlus} />
                     </a>
                   </li>
                   <li className="list-inline-item">
                     <a href="#">
-                      <i className="fa fa-instagram" aria-hidden="true" />
+                      <FontAwesomeIcon icon={faInstagram} />
                     </a>
                   </li>
                 </ul>

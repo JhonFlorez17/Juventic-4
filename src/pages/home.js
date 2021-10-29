@@ -25,6 +25,7 @@ class Home extends Component {
         </div>
         <Menu />
         <Servicios />
+        <Comentarios />
         <Contact />
       </>
     );
