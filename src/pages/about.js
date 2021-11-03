@@ -2,8 +2,73 @@ import React, { Component } from "react";
 import "../App.css";
 import Comentarios from "../components/comentarios";
 import Contact from "../components/contact";
+import { getStaff } from "../request/probar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faLinkedin,
+  faGooglePlus,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+import Number_carrito from "../components/number_carrito";
 
 class About extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      staff: [],
+    };
+    this.load_staff();
+  }
+
+  load_staff() {
+    getStaff().then((jsonR) => {
+      this.setState({
+        staff: jsonR,
+      });
+    });
+  }
+
+  items_staff() {
+    return this.state.staff.map((personal) => {
+      return (
+        <div className="col-md-4 col-sm-6">
+          <div className="our-team">
+            <div className="pic">
+              <img src={personal.imagen} alt className="img-fluid" />
+              <ul className="social">
+                <li>
+                  <a href="#">
+                    <FontAwesomeIcon icon={faFacebook} />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <FontAwesomeIcon icon={faGooglePlus} />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <FontAwesomeIcon icon={faInstagram} />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <FontAwesomeIcon icon={faLinkedin} />
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="team-content">
+              <h3 className="title">{personal.nombre}</h3>
+              <span className="post">{personal.cargo}</span>
+            </div>
+          </div>
+        </div>
+      );
+    });
+  }
+
   render() {
     return (
       <>
@@ -43,8 +108,8 @@ class About extends Component {
                 <img src="images/about-img.jpg" alt className="img-fluid" />
               </div>
               <div class="col-md-12">
-                <div class="col-lg-6 col-md-6 text-center">
-                  <div class="inner-column">
+                <div class="col-md-12">
+                  <div class="inner-pt">
                     <h1>
                       Nuestro <span> Compromiso </span>
                     </h1>
@@ -78,171 +143,12 @@ class About extends Component {
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-md-4 col-sm-6">
-                <div className="our-team">
-                  <div className="pic">
-                    <img
-                      src="images\stuff-img-01.jpg"
-                      alt
-                      className="img-fluid"
-                    />
-                    <ul className="social">
-                      <li>
-                        <a href="#" className="fa fa-facebook"></a>
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-google-plus"></a>
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-instagram"></a>
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-linkedin"></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="team-content">
-                    <h3 className="title">Williamson</h3>
-                    <span className="post">Gerente general</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-md-4 col-sm-6">
-                <div className="our-team">
-                  <div className="pic">
-                    <img src="images\stuff-img-02.jpg" />
-                    <ul className="social">
-                      <li>
-                        <a href="#" className="fa fa-facebook"></a>
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-google-plus"></a>
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-instagram"></a>
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-linkedin"></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="team-content">
-                    <h3 className="title">Steve Thomas</h3>
-                    <span className="post">Chef</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-md-4 col-sm-6">
-                <div className="our-team">
-                  <div className="pic">
-                    <img src="images\stuff-img-03.jpg" />
-                    <ul className="social">
-                      <li>
-                        <a href="#" className="fa fa-facebook"></a>
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-google-plus"></a>
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-instagram"></a>
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-linkedin"></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="team-content">
-                    <h3 className="title">Kristiana</h3>
-                    <span className="post">Panadera</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-md-4 col-sm-6">
-                <div className="our-team">
-                  <div className="pic">
-                    <img src="images\stuff-img-04.jpg" />
-                    <ul className="social">
-                      <li>
-                        <a href="#" className="fa fa-facebook"></a>
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-google-plus"></a>
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-instagram"></a>
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-linkedin"></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="team-content">
-                    <h3 className="title">Douglas</h3>
-                    <span className="post">Chef</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-md-4 col-sm-6">
-                <div className="our-team">
-                  <div className="pic">
-                    <img src="images\stuff-img-05.jpg" />
-                    <ul className="social">
-                      <li>
-                        <a href="#" className="fa fa-facebook"></a>
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-google-plus"></a>
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-instagram"></a>
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-linkedin"></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="team-content">
-                    <h3 className="title">Michell</h3>
-                    <span className="post">Auxiliar de cocina</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-md-4 col-sm-6">
-                <div className="our-team">
-                  <div className="pic">
-                    <img src="images\stuff-img-06.jpg" />
-                    <ul className="social">
-                      <li>
-                        <a href="#" className="fa fa-facebook"></a>
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-google-plus"></a>
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-instagram"></a>
-                      </li>
-                      <li>
-                        <a href="#" className="fa fa-linkedin"></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="team-content">
-                    <h3 className="title">Danny</h3>
-                    <span className="post">Auxiliar de cocina</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div className="row">{this.items_staff()}</div>
           </div>
         </div>
         <Comentarios />
         <Contact />
+        <Number_carrito />
       </>
     );
   }

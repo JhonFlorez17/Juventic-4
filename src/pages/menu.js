@@ -1,150 +1,114 @@
 import React, { Component } from "react";
 import "../App.css";
 import "./stylemenu.css";
-import { Tab, Nav, Row, Col } from "react-bootstrap";
+import "./modalcart.css";
+import { Tab, Nav, Row, Col, Modal, Button } from "react-bootstrap";
 import Comentarios from "../components/comentarios";
 import Contact from "../components/contact";
-
-const articulos = [
-  {
-    id: 0,
-    nommbre_modal: "Bebida Especial 1",
-    descripcion: "Bebida con limon y algunas yerbas camperas.",
-    precio: 8000,
-    imagen: "images2/img-01.jpg",
-  },
-  {
-    id: 1,
-    nommbre_modal: "Bebida Especial 2",
-    descripcion: "Bebida con naranja y algunas yerbas camperas.",
-    precio: 9000,
-    imagen: "images2/img-02.jpg",
-  },
-  {
-    id: 2,
-    nommbre_modal: "Bebida Especial 3",
-    descripcion: "Bebida con vodka y algunas yerbas camperas.",
-    precio: 10000,
-    imagen: "images2/img-03.jpg",
-  },
-  {
-    id: 3,
-    nommbre_modal: "Ensalada Especial 1",
-    descripcion: "Ensalada con aguacte y vegetales camperos",
-    precio: 15000,
-    imagen: "images2/img-04.jpg",
-  },
-  {
-    id: 4,
-    nommbre_modal: "Ensalada Especial 2",
-    descripcion: "Ensalada con huevos fritos y vegetales camperos",
-    precio: 15000,
-    imagen: "images2/img-05.jpg",
-  },
-  {
-    id: 5,
-    nommbre_modal: "Ensalada Especial 3",
-    descripcion: "Ensalada con champiñons, miel y vegetales camperos",
-    precio: 20000,
-    imagen: "images2/img-06.jpg",
-  },
-  {
-    id: 6,
-    nommbre_modal: "Hamburguesa Especial 1",
-    descripcion: "Hamburguesa extra L con queso especial",
-    precio: 25000,
-    imagen: "images2/img-07.jpg",
-  },
-  {
-    id: 7,
-    nommbre_modal: "Hot dog Especial 1",
-    descripcion: "Hot Dog extra L con queso especial y ensalada",
-    precio: 20000,
-    imagen: "images2/img-08.jpg",
-  },
-  {
-    id: 8,
-    nommbre_modal: "Pizza Especial 1",
-    descripcion: "Pizza de carne-queso especial",
-    precio: 20000,
-    imagen: "images2/img-09.jpg",
-  },
-  {
-    id: 9,
-    nommbre_modal: "Hamburguesa Especial 2",
-    descripcion: "Hamburguesa extra con queso especial y papas",
-    precio: 27000,
-    imagen: "images2/img-10.jpg",
-  },
-  {
-    id: 10,
-    nommbre_modal: "Hot dog Especial 2",
-    descripcion: "Hot Dog extra L con queso especial y ensalada",
-    precio: 20000,
-    imagen: "images2/img-11.jpg",
-  },
-  {
-    id: 11,
-    nommbre_modal: "Pizza Especial 2",
-    descripcion: "Pizza de carne-queso especial",
-    precio: 20000,
-    imagen: "images2/img-12.jpg",
-  },
-];
-
-const bebidas = [
-  {
-    id: 12,
-    nommbre_modal: "Standard black ",
-    descripcion: "Lorem ipsum dolor sit amet elit. Phasel nec preti facil",
-    precio: 12000,
-    imagen: "images2/menu-beverage.jpg",
-  },
-  {
-    id: 13,
-    nommbre_modal: "Standard black coffee",
-    descripcion: "Lorem ipsum dolor sit amet elit. Phasel nec preti facil",
-    precio: 7000,
-    imagen: "images2/menu-beverage.jpg",
-  },
-  {
-    id: 14,
-    nommbre_modal: "Standard white coffee",
-    descripcion: "Lorem ipsum dolor sit amet elit. Phasel nec preti facil",
-    precio: 4000,
-    imagen: "images2/menu-beverage.jpg",
-  },
-  {
-    id: 15,
-    nommbre_modal: "Standard white",
-    descripcion: "Lorem ipsum dolor sit amet elit. Phasel nec preti facil",
-    precio: 9000,
-    imagen: "images2/menu-beverage.jpg",
-  },
-];
+import { getMenu, getBebidas, getEnsaladas } from "../request/probar";
+import { faLessThanEqual } from "@fortawesome/free-solid-svg-icons";
+import { numero_carrito } from "../js/carrito";
+import {
+  aumentar,
+  disminuir,
+  enviar_carrito,
+  carga_local,
+  input_modal,
+} from "../js/carrito";
+import Numero_carrito from "../components/number_carrito";
 
 class Menu extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      menu_pop: [],
+      bebidas: [],
+      ensaladas: [],
+      show: false,
+      infomodal: {},
+    };
+    this.load_menu();
+    this.load_bebidas();
+    this.load_ensaladas();
+    this.handleClose();
+    this.handleShow();
+  }
+
+  componentDidMount() {
+    carga_local();
+  }
+
+  componentDidUpdate() {
+    input_modal(this.state.infomodal.id);
+  }
+
+  handleClose() {
+    this.setState({
+      show: false,
+      infomodal: {},
+    });
+  }
+
+  handleShow(items) {
+    this.setState({
+      show: true,
+      infomodal: items,
+    });
+  }
+
+  load_menu() {
+    getMenu().then((jsonR) => {
+      this.setState({
+        menu_pop: jsonR,
+      });
+    });
+  }
+
+  load_bebidas() {
+    getBebidas().then((jsonR) => {
+      this.setState({
+        bebidas: jsonR,
+      });
+    });
+  }
+
+  load_ensaladas() {
+    getEnsaladas().then((jsonR) => {
+      this.setState({
+        ensaladas: jsonR,
+      });
+    });
+  }
+
   items_menu() {
-    return articulos.map((menu) => {
+    return this.state.menu_pop.map((items, i) => {
       return (
-        <div className="col-lg-4 col-md-6 special-grid drinks">
-          <div className="gallery-single fix">
-            <img className="img-fluid" alt="Image" src={menu.imagen} />
-            <div className="why-text">
-              <h5 className="miboton" data-bs-target="#reg-modal">
-                {menu.nommbre_modal}
-              </h5>
-              <p> {menu.descripcion} </p>
-              <h5 id="precio"> $ {menu.precio} COP</h5>
+        <>
+          <div className="col-lg-4 col-md-6 special-grid drinks">
+            <div className="gallery-single fix">
+              <img className="img-fluid" alt="Image" src={items.imagen} />
+              <div className="why-text">
+                <Button
+                  className="miboton"
+                  style={{ width: "230px" }}
+                  onClick={() => {
+                    this.handleShow(items);
+                  }}
+                >
+                  {items.nommbre_modal}
+                </Button>
+                <p> {items.descripcion} </p>
+                <h5 id="precio"> $ {items.precio} COP</h5>
+              </div>
             </div>
           </div>
-        </div>
+        </>
       );
     });
   }
 
   items_bebida() {
-    return bebidas.map((bebida) => {
+    return this.state.bebidas.map((bebida) => {
       return (
         <div class="menu-item">
           <div class="menu-img">
@@ -156,6 +120,29 @@ class Menu extends Component {
               <strong>{bebida.precio} </strong>
             </h3>
             <p>{bebida.descripcion}</p>
+          </div>
+        </div>
+      );
+    });
+  }
+
+  items_ensaladas() {
+    return this.state.ensaladas.map((ensalada) => {
+      return (
+        <div class="menu-item">
+          <div class="menu-img">
+            <img src={ensalada.imagen} alt="Image" />
+          </div>
+          <div class="menu-text">
+            <h3
+              class="h3m"
+              data-toggle="modal"
+              data-target=".bd-example-modal-lg"
+            >
+              <span class="textoSnack">{ensalada.nommbre_modal}</span>
+              <strong>${ensalada.precio} </strong>
+            </h3>
+            <p>{ensalada.descripcion}</p>
           </div>
         </div>
       );
@@ -242,114 +229,7 @@ class Menu extends Component {
                             <p>Bienvenido a la sección de ensaladas</p>
                           </div>
                           <div class="col-lg-7 col-md-12">
-                            <div class="menu-item">
-                              <div class="menu-img">
-                                <img src="images2/menu-snack.jpg" alt="Image" />
-                              </div>
-                              <div class="menu-text">
-                                <h3
-                                  class="h3m"
-                                  data-toggle="modal"
-                                  data-target=".bd-example-modal-lg"
-                                >
-                                  <span class="textoSnack">
-                                    Corn Tikki - Spicy fried Aloo
-                                  </span>
-                                  <strong>$15.00</strong>
-                                </h3>
-                                <p>
-                                  Lorem ipsum dolor sit amet elit. Phasel nec
-                                  preti facil
-                                </p>
-                              </div>
-                            </div>
-                            <div class="menu-item">
-                              <div class="menu-img">
-                                <img src="images2/menu-snack.jpg" alt="Image" />
-                              </div>
-                              <div class="menu-text">
-                                <h3
-                                  class="h3m"
-                                  data-toggle="modal"
-                                  data-target=".bd-example-modal-lg"
-                                >
-                                  <span class="textoSnack">
-                                    Corn Tikki - Spicy fried Aloo
-                                  </span>
-                                  <strong>$15.00</strong>
-                                </h3>
-                                <p>
-                                  Lorem ipsum dolor sit amet elit. Phasel nec
-                                  preti facil
-                                </p>
-                              </div>
-                            </div>
-
-                            <div class="menu-item">
-                              <div class="menu-img">
-                                <img src="images2/menu-snack.jpg" alt="Image" />
-                              </div>
-                              <div class="menu-text">
-                                <h3
-                                  class="h3m"
-                                  data-toggle="modal"
-                                  data-target=".bd-example-modal-lg"
-                                >
-                                  <span class="textoSnack">
-                                    Bread besan Toast
-                                  </span>
-                                  <strong>$15.00</strong>
-                                </h3>
-                                <p>
-                                  Lorem ipsum dolor sit amet elit. Phasel nec
-                                  preti facil
-                                </p>
-                              </div>
-                            </div>
-
-                            <div class="menu-item">
-                              <div class="menu-img">
-                                <img src="images2/menu-snack.jpg" alt="Image" />
-                              </div>
-                              <div class="menu-text">
-                                <h3
-                                  class="h3m"
-                                  data-toggle="modal"
-                                  data-target=".bd-example-modal-lg"
-                                >
-                                  <span class="textoSnack">
-                                    Tandoori Soya Chunks
-                                  </span>
-                                  <strong>$15.00</strong>
-                                </h3>
-                                <p>
-                                  Lorem ipsum dolor sit amet elit. Phasel nec
-                                  preti facil
-                                </p>
-                              </div>
-                            </div>
-
-                            <div class="menu-item">
-                              <div class="menu-img">
-                                <img src="images2/menu-snack.jpg" alt="Image" />
-                              </div>
-                              <div class="menu-text">
-                                <h3
-                                  class="h3m"
-                                  data-toggle="modal"
-                                  data-target=".bd-example-modal-lg"
-                                >
-                                  <span class="textoSnack">
-                                    Corn Tikki - Spicy fried Aloo
-                                  </span>
-                                  <strong>$15.00</strong>
-                                </h3>
-                                <p>
-                                  Lorem ipsum dolor sit amet elit. Phasel nec
-                                  preti facil
-                                </p>
-                              </div>
-                            </div>
+                            {this.items_ensaladas()}
                           </div>
                           <div class="col-lg-5 d-none d-lg-block">
                             <img
@@ -390,9 +270,76 @@ class Menu extends Component {
             </div>
           </div>
         </div>
-
+        <Modal
+          show={this.state.show}
+          onHide={this.handleClose.bind(this)}
+          centered
+        >
+          <Modal.Header id="modal-header">
+            <Modal.Title id="title-h5">
+              {this.state.infomodal.nommbre_modal}
+            </Modal.Title>
+            <button
+              type="button"
+              class="btn-close"
+              aria-label="Close"
+              onClick={this.handleClose.bind(this)}
+            >
+              X
+            </button>
+          </Modal.Header>
+          <Modal.Body>
+            <div class="descripcion">
+              <p> {this.state.infomodal.descripcion}</p>
+            </div>
+            <div class="description" id="img-modal">
+              <img
+                src={this.state.infomodal.imagen}
+                class="logoCarritomodal"
+                alt=""
+                srcset=""
+              ></img>
+            </div>
+            <hr />
+            <span class="cantidadSpan">Cantidad</span>
+            <div class="btn-carrito">
+              <button
+                class="btn-disminuir"
+                id="btn-disminuir"
+                onClick={() => {
+                  disminuir();
+                }}
+              >
+                -
+              </button>
+              <input type="number" class="cantidad" id="cantidad" value="1" />
+              <button
+                class="btn-aumentar"
+                id="btn-aumentar"
+                onClick={() => {
+                  aumentar();
+                }}
+              >
+                +
+              </button>
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="secondary"
+              className="modalb"
+              onClick={() => {
+                this.handleClose();
+                enviar_carrito(this.state.infomodal);
+              }}
+            >
+              Enviar Al Carrito
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Comentarios />
         <Contact />
+        <Numero_carrito />
       </>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
+import Number_carrito from "../components/number_carrito";
 
 const items = [
   {
@@ -95,6 +96,7 @@ class Servicios extends Component {
             <div class="row">{this.items_Ser()}</div>
           </div>
         </div>
+        <Number_carrito />
       </>
     );
   }

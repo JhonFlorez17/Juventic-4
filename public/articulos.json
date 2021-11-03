@@ -1,0 +1,86 @@
+[
+  {
+    "id": 0,
+    "nommbre_modal": "Bebida Especial 1",
+    "descripcion": "Bebida con limon y algunas yerbas camperas.",
+    "precio": 8000,
+    "imagen": "images2/img-01.jpg"
+  },
+  {
+    "id": 1,
+    "nommbre_modal": "Bebida Especial 2",
+    "descripcion": "Bebida con naranja y algunas yerbas camperas.",
+    "precio": 9000,
+    "imagen": "images2/img-02.jpg"
+  },
+  {
+    "id": 2,
+    "nommbre_modal": "Bebida Especial 3",
+    "descripcion": "Bebida con vodka y algunas yerbas camperas.",
+    "precio": 10000,
+    "imagen": "images2/img-03.jpg"
+  },
+  {
+    "id": 3,
+    "nommbre_modal": "Ensalada Especial 1",
+    "descripcion": "Ensalada con aguacte y vegetales camperos",
+    "precio": 15000,
+    "imagen": "images2/img-04.jpg"
+  },
+  {
+    "id": 4,
+    "nommbre_modal": "Ensalada Especial 2",
+    "descripcion": "Ensalada con huevos fritos y vegetales camperos",
+    "precio": 15000,
+    "imagen": "images2/img-05.jpg"
+  },
+  {
+    "id": 5,
+    "nommbre_modal": "Ensalada Especial 3",
+    "descripcion": "Ensalada con champiñons, miel y vegetales camperos",
+    "precio": 20000,
+    "imagen": "images2/img-06.jpg"
+  },
+  {
+    "id": 6,
+    "nommbre_modal": "Hamburguesa Especial 1",
+    "descripcion": "Hamburguesa extra L con queso especial",
+    "precio": 25000,
+    "imagen": "images2/img-07.jpg"
+  },
+  {
+    "id": 7,
+    "nommbre_modal": "Hot dog Especial 1",
+    "descripcion": "Hot Dog extra L con queso especial y ensalada",
+    "precio": 20000,
+    "imagen": "images2/img-08.jpg"
+  },
+  {
+    "id": 8,
+    "nommbre_modal": "Pizza Especial 1",
+    "descripcion": "Pizza de carne-queso especial",
+    "precio": 20000,
+    "imagen": "images2/img-09.jpg"
+  },
+  {
+    "id": 9,
+    "nommbre_modal": "Hamburguesa Especial 2",
+    "descripcion": "Hamburguesa extra con queso especial y papas",
+    "precio": 27000,
+    "imagen": "images2/img-10.jpg"
+  },
+  {
+    "id": 10,
+    "nommbre_modal": "Hot dog Especial 2",
+    "descripcion": "Hot Dog extra L con queso especial y ensalada",
+    "precio": 20000,
+    "imagen": "images2/img-11.jpg"
+  },
+  {
+    "id": 11,
+    "nommbre_modal": "Pizza Especial 2",
+    "descripcion": "Pizza de carne-queso especial",
+    "precio": 20000,
+    "imagen": "images2/img-12.jpg"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "nombre": "WILLIAMSON ",
+    "cargo": "Gerente General",
+    "imagen": "images/stuff-img-01.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "STEVE THOMAS ",
+    "cargo": "Chef",
+    "imagen": "images/stuff-img-02.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "KRISTIANA",
+    "cargo": "Panadera",
+    "imagen": "images/stuff-img-03.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "DOUGLAS",
+    "cargo": "Chef",
+    "imagen": "images/stuff-img-04.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "MICHELL",
+    "cargo": "Auxiliar De Cocina",
+    "imagen": "images/stuff-img-05.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "DANNY",
+    "cargo": "Auxiliar De Cocina",
+    "imagen": "images/stuff-img-06.jpg"
+  }
+]

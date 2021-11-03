@@ -31,6 +31,23 @@ p {
   width: 60%;
 }
 
+.descripcion {
+  display: inline-block;
+  width: 40%;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 1px 1px 4px #d9d9d9;
+  position: relative;
+  top: 50px;
+}
+
+.logoCarritomodal {
+  margin: auto;
+  border-radius: 50px;
+  padding: 30px;
+  max-width: 100%;
+}
+
 .btn-aumentar {
   background: #43aa8b;
   color: white;

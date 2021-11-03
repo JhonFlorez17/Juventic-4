@@ -1,0 +1,37 @@
+[
+  {
+    "id": 16,
+    "nommbre_modal": "Corn Tikki - Spicy fried Aloo ",
+    "descripcion": "Lorem ipsum dolor sit amet elit. Phasel nec preti facil",
+    "precio": 12000,
+    "imagen": "images2/menu-snack.jpg"
+  },
+  {
+    "id": 17,
+    "nommbre_modal": "Corn Tikki - Spicy fried Aloo",
+    "descripcion": "Lorem ipsum dolor sit amet elit. Phasel nec preti facil",
+    "precio": 7000,
+    "imagen": "images2/menu-snack.jpg"
+  },
+  {
+    "id": 18,
+    "nommbre_modal": "Bread besan Toast",
+    "descripcion": "Lorem ipsum dolor sit amet elit. Phasel nec preti facil",
+    "precio": 4000,
+    "imagen": "images2/menu-snack.jpg"
+  },
+  {
+    "id": 19,
+    "nommbre_modal": "Corn Tikki - Spicy fried Aloo",
+    "descripcion": "Lorem ipsum dolor sit amet elit. Phasel nec preti facil",
+    "precio": 9000,
+    "imagen": "images2/menu-snack.jpg"
+  },
+  {
+    "id": 20,
+    "nommbre_modal": "Tandoori Soya Chunks",
+    "descripcion": "Lorem ipsum dolor sit amet elit. Phasel nec preti facil",
+    "precio": 9000,
+    "imagen": "images2/menu-snack.jpg"
+  }
+]

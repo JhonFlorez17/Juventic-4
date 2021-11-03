@@ -34,7 +34,11 @@ class aboutindex extends Component {
               </div>
             </div>
             <div className="col-lg-6 col-md-6 col-sm-12">
-              <img src="images/about-img.jpg" alt className="img-fluid" />
+              <img
+                src="images/about-img.jpg"
+                alt="imagen"
+                className="img-fluid"
+              />
             </div>
           </div>
         </div>

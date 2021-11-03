@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
-
+import Number_carrito from "../components/number_carrito";
 class Reservas extends Component {
   render() {
     return (
@@ -22,7 +22,8 @@ class Reservas extends Component {
                 <div className="heading-title text-center">
                   <h2>Reserva nuestros servicios</h2>
                   <p>
-                    ¡Reserva cualquiera de nuestros servicios en tan solo segundos!
+                    ¡Reserva cualquiera de nuestros servicios en tan solo
+                    segundos!
                   </p>
                 </div>
               </div>
@@ -33,9 +34,17 @@ class Reservas extends Component {
                   <div className="row">
                     <div className="col-md-12">
                       <div className="form-group">
-                        <select className="custom-select d-block form-control" onclick="clickEvento(this)" id="evento"
-                          name="evento" required data-error="Por favor selecciona el servicio que deseas">
-                          <option disabled selected>Seleciona el servicio*</option>
+                        <select
+                          className="custom-select d-block form-control"
+                          onclick="clickEvento(this)"
+                          id="evento"
+                          name="evento"
+                          required
+                          data-error="Por favor selecciona el servicio que deseas"
+                        >
+                          <option disabled selected>
+                            Seleciona el servicio*
+                          </option>
                           <option value="Celebración de cumpleaños">
                             Celebración de cumpleaños
                           </option>
@@ -47,7 +56,9 @@ class Reservas extends Component {
                             Declaraciones o propuestas
                           </option>
                           <option value="Despedidas">Despedidas</option>
-                          <option value="Cena con amigos">Cena con amigos</option>
+                          <option value="Cena con amigos">
+                            Cena con amigos
+                          </option>
                         </select>
                         <div className="help-block with-errors"></div>
                       </div>
@@ -55,15 +66,30 @@ class Reservas extends Component {
 
                     <div className="col-md-12">
                       <div className="form-group">
-                        <input type="date" className="form-control" onblur="clickFecha(this)" id="fecha" name="fecha" required
-                          data-error="Escoja una fecha" />
+                        <input
+                          type="date"
+                          className="form-control"
+                          onblur="clickFecha(this)"
+                          id="fecha"
+                          name="fecha"
+                          required
+                          data-error="Escoja una fecha"
+                        />
                         <div className="help-block with-errors"></div>
                       </div>
                     </div>
 
                     <div className="col-md-12">
                       <div className="form-group">
-                        <input type="time" className="form-control" onblur="clickHora(this)" id="hora" name="hora" minlength="2" maxlength="20"/>
+                        <input
+                          type="time"
+                          className="form-control"
+                          onblur="clickHora(this)"
+                          id="hora"
+                          name="hora"
+                          minlength="2"
+                          maxlength="20"
+                        />
                         <p>Horario de atención: 04:00 pm a 10:30 pm</p>
                         <div className="help-block with-errors"></div>
                       </div>
@@ -71,53 +97,101 @@ class Reservas extends Component {
 
                     <div className="col-md-12">
                       <div className="form-group">
-                        <input type="number" className="form-control" onblur="clickPersonas(this)" id="numPersonas"
-                          name="numpersonas" placeholder="Número de personas" required
-                          data-error="INVÁLIDO. Solo se aceptan números" />
+                        <input
+                          type="number"
+                          className="form-control"
+                          onblur="clickPersonas(this)"
+                          id="numPersonas"
+                          name="numpersonas"
+                          placeholder="Número de personas"
+                          required
+                          data-error="INVÁLIDO. Solo se aceptan números"
+                        />
                         <div className="help-block with-errors"></div>
                       </div>
                     </div>
 
                     <div className="col-md-12">
                       <div className="form-group">
-                        <input type="text" className="form-control" id="nombreCliente" name="nombreCliente"
-                          placeholder="Nombre completo" minlength="10" maxlength="50" pattern="[A-Za-z ]+" required
-                          data-error="INVÁLIDO. Por favor escribe tu nombre correctamente" />
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="nombreCliente"
+                          name="nombreCliente"
+                          placeholder="Nombre completo"
+                          minlength="10"
+                          maxlength="50"
+                          pattern="[A-Za-z ]+"
+                          required
+                          data-error="INVÁLIDO. Por favor escribe tu nombre correctamente"
+                        />
                         <div className="help-block with-errors"></div>
                       </div>
                     </div>
 
                     <div className="col-md-12">
                       <div className="form-group">
-                        <input type="email" placeholder="Correo electrónico" id="correoCliente" name="correoCliente"
-                          className="form-control" minlength="14" maxlength="64" required
-                          data-error="INVÁLIDO. Por favor escribe tu correo electrónico correctamente" />
+                        <input
+                          type="email"
+                          placeholder="Correo electrónico"
+                          id="correoCliente"
+                          name="correoCliente"
+                          className="form-control"
+                          minlength="14"
+                          maxlength="64"
+                          required
+                          data-error="INVÁLIDO. Por favor escribe tu correo electrónico correctamente"
+                        />
                         <div className="help-block with-errors"></div>
                       </div>
                     </div>
 
                     <div className="col-md-12">
                       <div className="form-group">
-                        <input type="number" className="form-control" id="celularCliente" name="celularCliente"
-                          placeholder="Teléfono" minlength="7" maxlength="10" required
-                          data-error="INVÁLIDO. Solo se aceptan números" />
+                        <input
+                          type="number"
+                          className="form-control"
+                          id="celularCliente"
+                          name="celularCliente"
+                          placeholder="Teléfono"
+                          minlength="7"
+                          maxlength="10"
+                          required
+                          data-error="INVÁLIDO. Solo se aceptan números"
+                        />
                         <div className="help-block with-errors"></div>
                       </div>
                     </div>
 
                     <div className="col-md-12">
                       <div className="form-group">
-                        <input className="form-control" onblur="clickSolicitud(this)" id="solicitudCliente"
-                          name="solicitudCliente" placeholder="Solicitudes adicionales" rows="4" minlength="10"
-                          maxlength="500" required data-error="Por favor escribe tus solicitudes adicionales" />
+                        <input
+                          className="form-control"
+                          onblur="clickSolicitud(this)"
+                          id="solicitudCliente"
+                          name="solicitudCliente"
+                          placeholder="Solicitudes adicionales"
+                          rows="4"
+                          minlength="10"
+                          maxlength="500"
+                          required
+                          data-error="Por favor escribe tus solicitudes adicionales"
+                        />
                         <div className="help-block with-errors"></div>
                       </div>
 
                       <div className="submit-button text-center">
-                        <button type="submit" id="buttonID" className="btn btn-common">
+                        <button
+                          type="submit"
+                          id="buttonID"
+                          className="btn btn-common"
+                        >
                           RESERVAR
                         </button>
-                        <div id="msgSubmit" className="h3 text-center hidden"></div>
+                        <div
+                          id="msgSubmit"
+                          className="h3 text-center hidden"
+                        ></div>
                         <div className="clearfix"></div>
                       </div>
                     </div>
@@ -127,6 +201,7 @@ class Reservas extends Component {
             </div>
           </div>
         </div>
+        <Number_carrito />
       </>
     );
   }

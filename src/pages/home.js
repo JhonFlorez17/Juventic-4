@@ -6,6 +6,7 @@ import Menu from "../components/menu";
 import Servicios from "../components/servicios";
 import Comentarios from "../components/comentarios";
 import Contact from "../components/contact";
+import Number_carrito from "../components/number_carrito";
 
 class Home extends Component {
   render() {
@@ -27,6 +28,7 @@ class Home extends Component {
         <Servicios />
         <Comentarios />
         <Contact />
+        <Number_carrito />
       </>
     );
   }
