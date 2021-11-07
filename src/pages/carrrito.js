@@ -101,12 +101,26 @@ class Carrito extends Component {
   }
 
   render_footer() {
-    if (articulos.length > 1) {
+    if (articulos.length >= 1) {
+      const nCantidad = Object.values(this.state.items_cart).reduce(
+        (acc, { cantidad }) => parseInt(acc) + parseInt(cantidad),
+        0
+      );
+      const nPrecio = Object.values(this.state.items_cart).reduce(
+        (acc, { cantidad, precio }) => acc + cantidad * precio,
+        0
+      );
+
       return (
         <tr id="footer">
-          <th scope="row" colSpan={5}>
-            Sigue Comprando
+          <th scope="row" colSpan={2}>
+            Total Productos
           </th>
+          <td></td>
+          <td>{nCantidad}</td>
+          <td className="font-weight-bold">
+            $ <span>{nPrecio}</span>
+          </td>
         </tr>
       );
     } else {
