@@ -16,6 +16,9 @@ export function disminuir() {
   return (document.getElementById("cantidad").value = num_update);
 }
 
+export function vaciar_json() {
+  carrito = {};
+}
 export function enviar_carrito(item) {
   let producto;
   let num_actual = document.getElementById("cantidad").value;
@@ -34,7 +37,7 @@ export function enviar_carrito(item) {
   alertify.success("Se agrego Con exito al carrito");
 }
 
-export function numero_carrito(item) {
+export function numero_carrito() {
   const number_carrito = document.getElementById("number-cart");
   if (localStorage.getItem("carrito")) {
     carrito = JSON.parse(localStorage.getItem("carrito"));

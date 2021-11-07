@@ -14,6 +14,7 @@ import {
   enviar_carrito,
   carga_local,
   input_modal,
+  vaciar_json,
 } from "../js/carrito";
 import Numero_carrito from "../components/number_carrito";
 
@@ -35,11 +36,14 @@ class Menu extends Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
+    vaciar_json();
     carga_local();
   }
 
   componentDidUpdate() {
     input_modal(this.state.infomodal.id);
+    numero_carrito();
   }
 
   handleClose() {
@@ -117,7 +121,7 @@ class Menu extends Component {
           <div class="menu-text">
             <h3 class="h3m" data-toggle="modal" data-target="#reg-modal">
               <span class="textoSnack"> {bebida.nommbre_modal}</span>
-              <strong>{bebida.precio} </strong>
+              <strong>$ {bebida.precio} </strong>
             </h3>
             <p>{bebida.descripcion}</p>
           </div>

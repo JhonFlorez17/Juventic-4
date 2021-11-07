@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../App.css";
 import Number_carrito from "../components/number_carrito";
+import { Link } from "react-router-dom";
 
 const items = [
   {
@@ -42,6 +43,10 @@ const items = [
 ];
 
 class Servicios extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   items_Ser() {
     return items.map((item) => {
       return (
@@ -53,12 +58,12 @@ class Servicios extends Component {
               </div>
               <h4>{item.titulo}</h4>
               <p>{item.descripcion}</p>
-              <a
+              <Link
                 class="btn btn-lg btn-circle btn-outline-new-white"
-                href="reservas.html"
+                to="/reserva"
               >
                 Reserva en línea
-              </a>
+              </Link>
             </div>
           </div>
         </div>

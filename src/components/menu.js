@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../App.css";
 import "./menu.css";
+import { Link } from "react-router-dom";
 
 class Menu extends Component {
   render() {
@@ -36,9 +37,9 @@ class Menu extends Component {
                   >
                     Lo más vendido
                   </a>
-                  <a className="nav-link bebida" href="menu.html" role="tab">
+                  <Link className="nav-link bebida" to="/menu" role="tab">
                     Menú Completo
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="col-9">
@@ -64,14 +65,9 @@ class Menu extends Component {
                             alt="Image"
                           />
                           <div className="why-text">
-                            <h5
-                              className="miboton"
-                              data-bs-toggle="modal"
-                              data-bs-target="#reg-modal"
-                              onclick="ref_carrito()"
-                            >
+                            <Link className="miboton" to="/menu">
                               Bebida especial 1
-                            </h5>
+                            </Link>
                             <br />
                             <p>Bebida con limon y algunas yerbas camperas.</p>
                             <h5> $8.000 COP</h5>
@@ -86,14 +82,9 @@ class Menu extends Component {
                             alt="Image"
                           />
                           <div className="why-text">
-                            <h5
-                              className="miboton"
-                              data-bs-toggle="modal"
-                              data-bs-target="#reg-modal"
-                              onclick="ref_carrito()"
-                            >
+                            <Link className="miboton" to="/menu">
                               Bebida especial 2
-                            </h5>
+                            </Link>
                             <br />
                             <p>Bebida con naranja y algunas yerbas camperas.</p>
                             <h5> $9.000 COP</h5>
@@ -108,14 +99,9 @@ class Menu extends Component {
                             alt="Image"
                           />
                           <div className="why-text">
-                            <h5
-                              className="miboton"
-                              data-bs-toggle="modal"
-                              data-bs-target="#reg-modal"
-                              onclick="ref_carrito()"
-                            >
+                            <Link className="miboton" to="/menu">
                               Bebida especial 3
-                            </h5>
+                            </Link>
                             <br />
                             <p>Bebida con vodka y algunas yerbas camperas.</p>
                             <h5> $10.000 COP</h5>
@@ -130,14 +116,9 @@ class Menu extends Component {
                             alt="Image"
                           />
                           <div className="why-text">
-                            <h5
-                              className="miboton"
-                              data-bs-toggle="modal"
-                              data-bs-target="#reg-modal"
-                              onclick="ref_carrito()"
-                            >
+                            <Link className="miboton" to="/menu">
                               Ensalada especial 1
-                            </h5>
+                            </Link>
                             <br />
                             <p>Ensalada con aguacte y vegetales camperos</p>
                             <h5> $15.000 COP</h5>
@@ -152,14 +133,9 @@ class Menu extends Component {
                             alt="Image"
                           />
                           <div className="why-text">
-                            <h5
-                              className="miboton"
-                              data-bs-toggle="modal"
-                              data-bs-target="#reg-modal"
-                              onclick="ref_carrito()"
-                            >
+                            <Link className="miboton" to="/menu">
                               Ensalada especial 2
-                            </h5>
+                            </Link>
                             <br />
                             <p>
                               Ensalada con huevos fritos y vegetales camperos
@@ -176,14 +152,9 @@ class Menu extends Component {
                             alt="Image"
                           />
                           <div className="why-text">
-                            <h5
-                              className="miboton"
-                              data-bs-toggle="modal"
-                              data-bs-target="#reg-modal"
-                              onclick="ref_carrito()"
-                            >
+                            <Link className="miboton" to="/menu">
                               Ensalada especial 3
-                            </h5>
+                            </Link>
                             <br />
                             <p>
                               Ensalada con champiñons, miel y vegetales camperos
@@ -200,14 +171,9 @@ class Menu extends Component {
                             alt="Image"
                           />
                           <div className="why-text">
-                            <h5
-                              className="miboton"
-                              data-bs-toggle="modal"
-                              data-bs-target="#reg-modal"
-                              onclick="ref_carrito()"
-                            >
+                            <Link className="miboton" to="/menu">
                               Hamburguesa especial 1
-                            </h5>
+                            </Link>
                             <br />
                             <p>Hamburguesa extra L con queso especial</p>
                             <h5> $25000 COP</h5>
@@ -222,14 +188,9 @@ class Menu extends Component {
                             alt="Image"
                           />
                           <div className="why-text">
-                            <h5
-                              className="miboton"
-                              data-bs-toggle="modal"
-                              data-bs-target="#reg-modal"
-                              onclick="ref_carrito()"
-                            >
+                            <Link className="miboton" to="/menu">
                               Hot Dog especial 1
-                            </h5>
+                            </Link>
                             <br />
                             <p>Hot Dog extra L con queso especial y ensalada</p>
                             <h5> $20000 COP</h5>
@@ -244,14 +205,9 @@ class Menu extends Component {
                             alt="Image"
                           />
                           <div className="why-text">
-                            <h5
-                              className="miboton"
-                              data-bs-toggle="modal"
-                              data-bs-target="#reg-modal"
-                              onclick="ref_carrito()"
-                            >
+                            <Link className="miboton" to="/menu">
                               Pizza especial 1
-                            </h5>
+                            </Link>
                             <br />
                             <p>Pizza de carne-queso especial</p>
                             <h5> $20000 COP</h5>
@@ -266,14 +222,9 @@ class Menu extends Component {
                             alt="Image"
                           />
                           <div className="why-text">
-                            <h5
-                              className="miboton"
-                              data-bs-toggle="modal"
-                              data-bs-target="#reg-modal"
-                              onclick="ref_carrito()"
-                            >
+                            <Link className="miboton" to="/menu">
                               Hamburguesa especial 2
-                            </h5>
+                            </Link>
                             <br />
                             <p>Hamburguesa extra con queso especial y papas</p>
                             <h5> $27000 COP</h5>
@@ -288,14 +239,9 @@ class Menu extends Component {
                             alt="Image"
                           />
                           <div className="why-text">
-                            <h5
-                              className="miboton"
-                              data-bs-toggle="modal"
-                              data-bs-target="#reg-modal"
-                              onclick="ref_carrito()"
-                            >
+                            <Link className="miboton" to="/menu">
                               Pizza especial 2
-                            </h5>
+                            </Link>
                             <br />
                             <p>Pizza de carne-queso especial</p>
                             <h5> $20000 COP</h5>

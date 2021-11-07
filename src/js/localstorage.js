@@ -12,7 +12,7 @@ const items = document.getElementById("items");
 
 let carrito_render = {};
 
-export function render_carrito() {
+/* export function render_carrito() {
   items.innerHTML = "";
   carrito_render = JSON.parse(localStorage.getItem("carrito"));
   if (carrito_render) {
@@ -42,7 +42,7 @@ export function render_carrito() {
   } else {
     render_footer();
   }
-}
+} */
 
 function elimar_produ(id) {
   delete carrito_render[id];

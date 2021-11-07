@@ -7,6 +7,7 @@ import About from "./pages/about";
 import Servicios from "./pages/servicios";
 import Reservas from "./pages/reservas";
 import Carrito from "./pages/carrrito";
+import Confirm_cart from "./components/confirm_cart";
 import {
   BrowserRouter as Routers,
   Switch,
@@ -27,6 +28,7 @@ class Router extends Component {
             <Route path="/reserva" component={Reservas}></Route>
             <Route path="/carrito" component={Carrito}></Route>
             <Route path="/servicios" component={Servicios}></Route>
+            <Route path="/confirm" component={Confirm_cart}></Route>
           </Switch>
         </App>
       </Routers>

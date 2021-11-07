@@ -3,6 +3,13 @@ import "../App.css";
 import { numero_carrito } from "../js/carrito";
 
 class Number_cart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      numero: 0,
+    };
+  }
+
   componentDidMount() {
     numero_carrito();
   }
@@ -11,7 +18,7 @@ class Number_cart extends Component {
       <a href="carrito.html" class="back-to-top2">
         <i class="fa fa-cart-arrow-down">
           <span class="number-cart" id="number-cart">
-            0
+            {this.state.numero}
           </span>
         </i>
       </a>

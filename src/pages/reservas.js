@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "../App.css";
 import Number_carrito from "../components/number_carrito";
 class Reservas extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   render() {
     return (
       <>

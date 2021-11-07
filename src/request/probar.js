@@ -37,4 +37,5 @@ function getStaff() {
       console.log(error);
     });
 }
+
 export { getMenu, getBebidas, getEnsaladas, getStaff };

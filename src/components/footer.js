@@ -9,6 +9,7 @@ import {
   faGooglePlus,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-router-dom";
 
 class Footer extends Component {
   render() {
@@ -21,32 +22,27 @@ class Footer extends Component {
                 <h3>Navega</h3>
                 <p>
                   <span className="text-color">
-                    <a href="index.html">Inicio</a>
+                    <Link to="/home">Inicio</Link>
                   </span>{" "}
                 </p>
                 <p>
                   <span className="text-color">
-                    <a href="menu.html">Menú</a>
+                    <Link to="/menu">Menú</Link>
                   </span>{" "}
                 </p>
                 <p>
                   <span className="text-color">
-                    <a href="blog.html">Servicios</a>
+                    <Link to="/servicios#">Servicios</Link>
                   </span>{" "}
                 </p>
                 <p>
                   <span className="text-color">
-                    <a href="blog-details.html">Nuestro Blog</a>
+                    <Link to="/about">Quienes somos</Link>
                   </span>{" "}
                 </p>
                 <p>
                   <span className="text-color">
-                    <a href="about.html">Quienes somos</a>
-                  </span>{" "}
-                </p>
-                <p>
-                  <span className="text-color">
-                    <a href="reservation.html">Contáctanos</a>
+                    <Link to="/reserva">Contáctanos</Link>
                   </span>{" "}
                 </p>
               </div>

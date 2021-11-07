@@ -21,6 +21,10 @@ class About extends Component {
     this.load_staff();
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   load_staff() {
     getStaff().then((jsonR) => {
       this.setState({

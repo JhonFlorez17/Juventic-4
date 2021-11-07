@@ -9,6 +9,10 @@ import Contact from "../components/contact";
 import Number_carrito from "../components/number_carrito";
 
 class Home extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return (
       <>

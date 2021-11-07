@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../App.css";
 import "./carousel.css";
 import { Carousel } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const items = [
   {
@@ -43,12 +44,12 @@ class Carousel_home extends Component {
             </h1>
             <p className="m-b-40">{item.descripcion}</p>
             <p>
-              <a
+              <Link
                 className="btn btn-lg btn-circle btn-outline-new-white"
-                href="reservation.html"
+                to="/reserva"
               >
                 {item.boton}
-              </a>
+              </Link>
             </p>
           </Carousel.Caption>
           <div className="overlay-background"></div>

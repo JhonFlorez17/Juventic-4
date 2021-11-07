@@ -83,6 +83,7 @@ a:link {
   color: white;
 }
 .comprar {
+  border: none;
   background: #00a896;
   padding: 6px;
   color: white;

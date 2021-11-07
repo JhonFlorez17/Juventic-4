@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
+import { Link } from "react-router-dom";
 
 class Servicios extends Component {
   render() {
@@ -51,12 +52,12 @@ class Servicios extends Component {
               </div>
               <div className="col-lg-12">
                 <div className="heading-title text-center">
-                  <a
+                  <Link
                     className="btn btn-lg btn-circle btn-outline-new-white mt-5"
-                    href="blog.html"
+                    to="/servicios"
                   >
                     Mas Servicios
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../App.css";
 import "./aboutindex.css";
+import { Link } from "react-router-dom";
 
 class aboutindex extends Component {
   render() {
@@ -25,12 +26,12 @@ class aboutindex extends Component {
                   receta que ha estado por generaciones en nuestra familia y
                   ahora tienes la oportunidad de deleitarla.
                 </p>
-                <a
+                <Link
                   className="btn btn-lg btn-circle btn-outline-new-white"
-                  href="about.html"
+                  to="/about"
                 >
                   Conoce más
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-lg-6 col-md-6 col-sm-12">
