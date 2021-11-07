@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import "../App.css";
+import alertify from "alertifyjs";
+import "../../node_modules/alertifyjs/build/css/alertify.css";
+import "../../node_modules/alertifyjs/build/css/themes/semantic.css";
+import emailjs from "emailjs-com";
 let articulos = [];
-let carrito_render = {};
 
 class Confirm_cart extends Component {
   constructor(props) {
@@ -11,6 +14,7 @@ class Confirm_cart extends Component {
       correo: "",
       items_cart: [],
     };
+    this.sendEmailjs = this.sendEmailjs.bind(this);
   }
 
   componentDidMount() {
@@ -45,6 +49,58 @@ class Confirm_cart extends Component {
         </>
       );
     });
+  }
+
+  sendEmailjs(e) {
+    const nCantidad = Object.values(this.state.items_cart).reduce(
+      (acc, { cantidad }) => parseInt(acc) + parseInt(cantidad),
+      0
+    );
+    const nPrecio = Object.values(this.state.items_cart).reduce(
+      (acc, { cantidad, precio }) => acc + cantidad * precio,
+      0
+    );
+
+    e.preventDefault();
+    let valores = {
+      from_name: this.state.nombre,
+      to_name: this.state.nombre,
+      to_email: this.state.correo,
+      message:
+        "Nombre: " +
+        this.state.nombre +
+        " Cantidad de articulos: " +
+        nCantidad +
+        "  Valor total: " +
+        nPrecio +
+        "  Articulos: " +
+        articulos.map((items) => {
+          return "item: " + items.title + "  precio: " + items.precio + "\n";
+        }),
+    };
+    emailjs
+      .send(
+        "service_ndnj4uq",
+        "template_zn1jifa",
+        valores,
+        "user_SLROp8OMOhXacRTRrx5KS"
+      )
+      .then(
+        (result) => {
+          alertify.set("notifier", "position", "bottom-right");
+          alertify.success("Pedido realizado con exito");
+          localStorage.removeItem("nombreCliente");
+          localStorage.removeItem("correoCliente");
+          localStorage.removeItem("carrito");
+
+          setTimeout(function () {
+            window.location.href = "/home";
+          }, 3000);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   }
 
   render() {
@@ -101,16 +157,14 @@ class Confirm_cart extends Component {
                   <tbody id="datosproductos">{this.render_table()}</tbody>
                 </table>
                 <div className="submit-button text-center">
-                  <button className="btn btn-common" id="btn-reserva">
-                    {" "}
-                    CONFIRMAR COMPRA{" "}
+                  <button
+                    className="btn btn-common"
+                    id="btn-reserva"
+                    onClick={this.sendEmailjs}
+                  >
+                    CONFIRMAR COMPRA
                   </button>
-                  <a href="carrito.html">
-                    <button className="btn btn-common" id="btnback">
-                      {" "}
-                      VOLVER{" "}
-                    </button>
-                  </a>
+
                   <div id="msgSubmit" className="h3 text-center hidden" />
                   <div className="clearfix" />
                   <div></div>

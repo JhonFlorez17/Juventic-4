@@ -1,10 +1,52 @@
 import React, { Component } from "react";
 import "../App.css";
 import Number_carrito from "../components/number_carrito";
+
+import { Link } from "react-router-dom";
+
 class Reservas extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      evento: "",
+      fecha: "",
+      hora: "",
+      numPersonas: "",
+      nombreCliente: "",
+      correoCliente: "",
+      celularCliente: "",
+      solicitudCliente: "",
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
   componentDidMount() {
     window.scrollTo(0, 0);
   }
+
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+    console.log(e.target.name + "" + e.target.value);
+  }
+
+  handleSubmit(e) {
+    console.log(this.state.evento);
+    localStorage.setItem("evento", this.state.evento);
+  }
+
+  datos() {
+    localStorage.setItem("evento", this.state.evento);
+    localStorage.setItem("fecha", this.state.fecha);
+    localStorage.setItem("hora", this.state.hora);
+    localStorage.setItem("numPersonas", this.state.numPersonas);
+    localStorage.setItem("solicitudCliente", this.state.solicitudCliente);
+
+    localStorage.setItem("nombreCliente", this.state.nombreCliente);
+    localStorage.setItem("celularCliente", this.state.celularCliente);
+    localStorage.setItem("correoCliente", this.state.correoCliente);
+  }
+
   render() {
     return (
       <>
@@ -33,14 +75,13 @@ class Reservas extends Component {
             </div>
             <div className="row">
               <div className="col-lg-12">
-                <form id="formulario">
+                <form id="formulario" onSubmit={this.handleSubmit}>
                   <div className="row">
                     <div className="col-md-12">
                       <div className="form-group">
                         <select
                           className="custom-select d-block form-control"
-                          onclick="clickEvento(this)"
-                          id="evento"
+                          onChange={this.handleChange}
                           name="evento"
                           required
                           data-error="Por favor selecciona el servicio que deseas"
@@ -63,139 +104,128 @@ class Reservas extends Component {
                             Cena con amigos
                           </option>
                         </select>
-                        <div className="help-block with-errors"></div>
+                        <div className="help-block with-errors" />
                       </div>
                     </div>
-
                     <div className="col-md-12">
                       <div className="form-group">
                         <input
+                          onChange={this.handleChange}
                           type="date"
                           className="form-control"
-                          onblur="clickFecha(this)"
-                          id="fecha"
                           name="fecha"
                           required
                           data-error="Escoja una fecha"
                         />
-                        <div className="help-block with-errors"></div>
+                        <div className="help-block with-errors" />
                       </div>
                     </div>
-
                     <div className="col-md-12">
                       <div className="form-group">
                         <input
+                          onChange={this.handleChange}
                           type="time"
                           className="form-control"
-                          onblur="clickHora(this)"
-                          id="hora"
                           name="hora"
-                          minlength="2"
-                          maxlength="20"
                         />
                         <p>Horario de atención: 04:00 pm a 10:30 pm</p>
-                        <div className="help-block with-errors"></div>
+                        <div className="help-block with-errors" />
                       </div>
                     </div>
-
                     <div className="col-md-12">
                       <div className="form-group">
                         <input
+                          onChange={this.handleChange}
                           type="number"
                           className="form-control"
-                          onblur="clickPersonas(this)"
-                          id="numPersonas"
-                          name="numpersonas"
+                          name="numPersonas"
+                          min="1"
+                          max="20"
                           placeholder="Número de personas"
                           required
                           data-error="INVÁLIDO. Solo se aceptan números"
                         />
-                        <div className="help-block with-errors"></div>
+                        <div className="help-block with-errors" />
                       </div>
                     </div>
-
                     <div className="col-md-12">
                       <div className="form-group">
                         <input
+                          onChange={this.handleChange}
                           type="text"
                           className="form-control"
-                          id="nombreCliente"
                           name="nombreCliente"
                           placeholder="Nombre completo"
-                          minlength="10"
-                          maxlength="50"
+                          minLength={10}
+                          maxLength={50}
                           pattern="[A-Za-z ]+"
                           required
                           data-error="INVÁLIDO. Por favor escribe tu nombre correctamente"
                         />
-                        <div className="help-block with-errors"></div>
+                        <div className="help-block with-errors" />
                       </div>
                     </div>
-
                     <div className="col-md-12">
                       <div className="form-group">
                         <input
+                          onChange={this.handleChange}
                           type="email"
                           placeholder="Correo electrónico"
-                          id="correoCliente"
                           name="correoCliente"
                           className="form-control"
-                          minlength="14"
-                          maxlength="64"
+                          minLength={14}
+                          maxLength={64}
                           required
                           data-error="INVÁLIDO. Por favor escribe tu correo electrónico correctamente"
                         />
-                        <div className="help-block with-errors"></div>
+                        <div className="help-block with-errors" />
                       </div>
                     </div>
-
                     <div className="col-md-12">
                       <div className="form-group">
                         <input
+                          onChange={this.handleChange}
                           type="number"
                           className="form-control"
-                          id="celularCliente"
                           name="celularCliente"
                           placeholder="Teléfono"
-                          minlength="7"
-                          maxlength="10"
+                          minLength={7}
+                          maxLength={10}
                           required
                           data-error="INVÁLIDO. Solo se aceptan números"
                         />
-                        <div className="help-block with-errors"></div>
+                        <div className="help-block with-errors" />
                       </div>
                     </div>
-
                     <div className="col-md-12">
                       <div className="form-group">
                         <input
+                          onChange={this.handleChange}
                           className="form-control"
-                          onblur="clickSolicitud(this)"
-                          id="solicitudCliente"
                           name="solicitudCliente"
                           placeholder="Solicitudes adicionales"
-                          rows="4"
-                          minlength="10"
-                          maxlength="500"
+                          rows={4}
+                          minLength={10}
+                          maxLength={500}
                           required
                           data-error="Por favor escribe tus solicitudes adicionales"
                         />
-                        <div className="help-block with-errors"></div>
+                        <div className="help-block with-errors" />
                       </div>
-
                       <div className="submit-button text-center">
-                        <button
-                          type="submit"
-                          id="buttonID"
-                          className="btn btn-common"
-                        >
-                          RESERVAR
-                        </button>
-                        <div
-                          id="msgSubmit"
-                          className="h3 text-center hidden"
-                        ></div>
-                        <div className="clearfix"></div>
+                        <Link to="/confirmacion_reservas">
+                          <button
+                            type="submit"
+                            className="btn btn-common"
+                            onClick={() => {
+                              this.datos();
+                            }}
+                          >
+                            RESERVAR
+                          </button>
+                        </Link>
+                        <div id="msgSubmit" className="h3 text-center hidden" />
+                        <div className="clearfix" />
                       </div>
                     </div>
                   </div>

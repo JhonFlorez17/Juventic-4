@@ -48,9 +48,9 @@ class Servicios extends Component {
   }
 
   items_Ser() {
-    return items.map((item) => {
+    return items.map((item, i) => {
       return (
-        <div class="col-lg-4 col-md-6 col-12">
+        <div class="col-lg-4 col-md-6 col-12" key={i}>
           <div class="blog-box-inner">
             <div class="blog-detail">
               <div class="blog-img-box">

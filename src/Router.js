@@ -8,19 +8,15 @@ import Servicios from "./pages/servicios";
 import Reservas from "./pages/reservas";
 import Carrito from "./pages/carrrito";
 import Confirm_cart from "./components/confirm_cart";
-import {
-  BrowserRouter as Routers,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import Admin from "./components/admin";
+import Confirma_Reservas from "./components/confirmacion_reservas";
+import { BrowserRouter as Routers, Switch, Route } from "react-router-dom";
 
 class Router extends Component {
   render() {
     return (
       <Routers>
         <App>
-          <Redirect from="/" to="/home" />
           <Switch>
             <Route path="/menu" component={Menu}></Route>
             <Route path="/home" component={Home}></Route>
@@ -29,6 +25,11 @@ class Router extends Component {
             <Route path="/carrito" component={Carrito}></Route>
             <Route path="/servicios" component={Servicios}></Route>
             <Route path="/confirm" component={Confirm_cart}></Route>
+            <Route path="/admin" component={Admin}></Route>
+            <Route
+              path="/Confirmacion_Reservas"
+              component={Confirma_Reservas}
+            ></Route>
           </Switch>
         </App>
       </Routers>

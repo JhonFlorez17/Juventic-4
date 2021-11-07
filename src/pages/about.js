@@ -39,7 +39,7 @@ class About extends Component {
         <div className="col-md-4 col-sm-6">
           <div className="our-team">
             <div className="pic">
-              <img src={personal.imagen} alt className="img-fluid" />
+              <img src={personal.imagen} className="img-fluid" />
               <ul className="social">
                 <li>
                   <a href="#">
@@ -111,9 +111,9 @@ class About extends Component {
               <div className="col-lg-6 col-md-6 col-sm-12">
                 <img src="images/about-img.jpg" alt className="img-fluid" />
               </div>
-              <div class="col-md-12">
-                <div class="col-md-12">
-                  <div class="inner-pt">
+              <div className="col-md-12">
+                <div className="col-md-12">
+                  <div className="inner-pt">
                     <h1>
                       Nuestro <span> Compromiso </span>
                     </h1>

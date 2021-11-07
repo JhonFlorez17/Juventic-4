@@ -88,7 +88,7 @@ class Menu extends Component {
     return this.state.menu_pop.map((items, i) => {
       return (
         <>
-          <div className="col-lg-4 col-md-6 special-grid drinks">
+          <div key={i} className="col-lg-4 col-md-6 special-grid drinks">
             <div className="gallery-single fix">
               <img className="img-fluid" alt="Image" src={items.imagen} />
               <div className="why-text">
@@ -112,15 +112,15 @@ class Menu extends Component {
   }
 
   items_bebida() {
-    return this.state.bebidas.map((bebida) => {
+    return this.state.bebidas.map((bebida, i) => {
       return (
-        <div class="menu-item">
-          <div class="menu-img">
+        <div className="menu-item" key={i}>
+          <div className="menu-img">
             <img alt="Image" src={bebida.imagen} />
           </div>
-          <div class="menu-text">
-            <h3 class="h3m" data-toggle="modal" data-target="#reg-modal">
-              <span class="textoSnack"> {bebida.nommbre_modal}</span>
+          <div className="menu-text">
+            <h3 className="h3m" data-toggle="modal" data-target="#reg-modal">
+              <span className="textoSnack"> {bebida.nommbre_modal}</span>
               <strong>$ {bebida.precio} </strong>
             </h3>
             <p>{bebida.descripcion}</p>
@@ -133,17 +133,17 @@ class Menu extends Component {
   items_ensaladas() {
     return this.state.ensaladas.map((ensalada) => {
       return (
-        <div class="menu-item">
-          <div class="menu-img">
+        <div className="menu-item">
+          <div className="menu-img">
             <img src={ensalada.imagen} alt="Image" />
           </div>
-          <div class="menu-text">
+          <div className="menu-text">
             <h3
-              class="h3m"
+              className="h3m"
               data-toggle="modal"
               data-target=".bd-example-modal-lg"
             >
-              <span class="textoSnack">{ensalada.nommbre_modal}</span>
+              <span className="textoSnack">{ensalada.nommbre_modal}</span>
               <strong>${ensalada.precio} </strong>
             </h3>
             <p>{ensalada.descripcion}</p>
@@ -185,10 +185,10 @@ class Menu extends Component {
                     </Nav>
                   </Col>
                   <Col sm={9}>
-                    <Tab.Content class="tab-content">
+                    <Tab.Content className="tab-content">
                       <Tab.Pane eventKey="first">
-                        <div class="row" id="productos">
-                          <div class="heading-title text-center">
+                        <div className="row" id="productos">
+                          <div className="heading-title text-center">
                             <h2>Menú Especial</h2>
                             <p>
                               Bienvenido a la sección de lo más vendido
@@ -199,22 +199,22 @@ class Menu extends Component {
                         </div>
                       </Tab.Pane>
                       <Tab.Pane eventKey="second">
-                        <div class="row">
-                          <div class="heading-title text-center">
+                        <div className="row">
+                          <div className="heading-title text-center">
                             <h2>BEBIDAS</h2>
                             <p>Bienvenido a la sección de bebidas</p>
                           </div>
-                          <div class="col-lg-7 col-md-12" id="bebidas">
+                          <div className="col-lg-7 col-md-12" id="bebidas">
                             {this.items_bebida()}
                           </div>
-                          <div class="col-lg-5 d-none d-lg-block">
+                          <div className="col-lg-5 d-none d-lg-block">
                             <img
                               src="images2/menu-beverage-img.jpg"
                               alt="Image"
                               className="img-bebida"
                             />
                             <a
-                              class="nav-link"
+                              className="nav-link"
                               download="Menu.jpg"
                               id="v-pills-descargapdf-tab"
                               href="images2/MenuDescarga.jpg"
@@ -227,22 +227,22 @@ class Menu extends Component {
                       </Tab.Pane>
 
                       <Tab.Pane eventKey="third">
-                        <div class="row">
-                          <div class="heading-title text-center">
+                        <div className="row">
+                          <div className="heading-title text-center">
                             <h2>ENSALADAS</h2>
                             <p>Bienvenido a la sección de ensaladas</p>
                           </div>
-                          <div class="col-lg-7 col-md-12">
+                          <div className="col-lg-7 col-md-12">
                             {this.items_ensaladas()}
                           </div>
-                          <div class="col-lg-5 d-none d-lg-block">
+                          <div className="col-lg-5 d-none d-lg-block">
                             <img
                               src="images2/menu-snack-img.jpg"
                               alt="Image"
                               className="img-bebida"
                             />
                             <a
-                              class="nav-link"
+                              className="nav-link"
                               download="Menu.jpg"
                               id="v-pills-descargapdf-tab"
                               href="images2/MenuDescarga.jpg"
@@ -285,7 +285,7 @@ class Menu extends Component {
             </Modal.Title>
             <button
               type="button"
-              class="btn-close"
+              className="btn-close"
               aria-label="Close"
               onClick={this.handleClose.bind(this)}
             >
@@ -293,22 +293,22 @@ class Menu extends Component {
             </button>
           </Modal.Header>
           <Modal.Body>
-            <div class="descripcion">
+            <div className="descripcion">
               <p> {this.state.infomodal.descripcion}</p>
             </div>
-            <div class="description" id="img-modal">
+            <div className="description" id="img-modal">
               <img
                 src={this.state.infomodal.imagen}
-                class="logoCarritomodal"
+                className="logoCarritomodal"
                 alt=""
                 srcset=""
               ></img>
             </div>
             <hr />
-            <span class="cantidadSpan">Cantidad</span>
-            <div class="btn-carrito">
+            <span className="cantidadSpan">Cantidad</span>
+            <div className="btn-carrito">
               <button
-                class="btn-disminuir"
+                className="btn-disminuir"
                 id="btn-disminuir"
                 onClick={() => {
                   disminuir();
@@ -316,9 +316,14 @@ class Menu extends Component {
               >
                 -
               </button>
-              <input type="number" class="cantidad" id="cantidad" value="1" />
+              <input
+                type="number"
+                className="cantidad"
+                id="cantidad"
+                value="1"
+              />
               <button
-                class="btn-aumentar"
+                className="btn-aumentar"
                 id="btn-aumentar"
                 onClick={() => {
                   aumentar();

@@ -34,9 +34,9 @@ const items = [
 
 class Carousel_home extends Component {
   items_Car() {
-    return items.map((item) => {
+    return items.map((item, i) => {
       return (
-        <Carousel.Item>
+        <Carousel.Item key={i}>
           <img className="d-block w-100" src={item.imagen} alt="First slide" />
           <Carousel.Caption>
             <h1 className="m-b-20">

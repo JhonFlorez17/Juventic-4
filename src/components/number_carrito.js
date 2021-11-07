@@ -15,9 +15,9 @@ class Number_cart extends Component {
   }
   render() {
     return (
-      <a href="carrito.html" class="back-to-top2">
-        <i class="fa fa-cart-arrow-down">
-          <span class="number-cart" id="number-cart">
+      <a href="carrito.html" className="back-to-top2">
+        <i className="fa fa-cart-arrow-down">
+          <span className="number-cart" id="number-cart">
             {this.state.numero}
           </span>
         </i>
