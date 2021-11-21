@@ -23,7 +23,7 @@ export function enviar_carrito(item) {
   let producto;
   let num_actual = document.getElementById("cantidad").value;
   producto = {
-    title: item.nommbre_modal,
+    title: item.nombre,
     precio: item.precio,
     id: item.id,
     cantidad: parseInt(num_actual),

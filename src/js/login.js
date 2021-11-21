@@ -51,6 +51,7 @@ export function login(user, contra) {
     for (let i = 0; i < data.length; i++) {
       if (data[i].user === user && data[i].contra === contra) {
         localStorage.setItem("admin_view", true);
+        localStorage.setItem("rol", data[i].rol);
         window.location.href = "/admin";
         alertify.set("notifier", "position", "bottom-left");
         alertify.success("Bienvenido al sistema");

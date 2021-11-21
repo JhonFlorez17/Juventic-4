@@ -38,4 +38,67 @@ function getStaff() {
     });
 }
 
-export { getMenu, getBebidas, getEnsaladas, getStaff };
+function getPlatos() {
+  return fetch("http://localhost:64684/api/platos")
+    .then((data) => {
+      return data.json();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function NewPlato(data) {
+  return fetch("http://localhost:64684/api/platos", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((data) => {
+      return data.json();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function DeletePlato(id) {
+  return fetch("http://localhost:64684/api/platos/" + id, {
+    method: "DELETE",
+  })
+    .then((data) => {
+      return data.json();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function UpdatePlato(data) {
+  return fetch("http://localhost:64684/api/platos/", {
+    method: "PUT",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((data) => {
+      return data.json();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+export {
+  getMenu,
+  getBebidas,
+  getEnsaladas,
+  getStaff,
+  getPlatos,
+  NewPlato,
+  DeletePlato,
+  UpdatePlato,
+};

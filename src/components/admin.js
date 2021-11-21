@@ -22,13 +22,25 @@ class Admin extends Component {
           </div>
         </div>
       );
-    } else {
+    } else if (localStorage.getItem("rol") == "admin") {
       return (
         <div class="all-page-title page-breadcrumb-two">
           <div class="container text-center">
             <div class="row">
               <div class="col-lg-12">
                 <h1>Bienvenido al Panel Admin</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div class="all-page-title page-breadcrumb-two">
+          <div class="container text-center">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1>Bienvenido al Panel de Usuarios</h1>
               </div>
             </div>
           </div>

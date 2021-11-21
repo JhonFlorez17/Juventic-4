@@ -5,7 +5,12 @@ import "./modalcart.css";
 import { Tab, Nav, Row, Col, Modal, Button } from "react-bootstrap";
 import Comentarios from "../components/comentarios";
 import Contact from "../components/contact";
-import { getMenu, getBebidas, getEnsaladas } from "../request/probar";
+import {
+  getMenu,
+  getBebidas,
+  getEnsaladas,
+  getPlatos,
+} from "../request/probar";
 import { faLessThanEqual } from "@fortawesome/free-solid-svg-icons";
 import { numero_carrito } from "../js/carrito";
 import {
@@ -61,7 +66,7 @@ class Menu extends Component {
   }
 
   load_menu() {
-    getMenu().then((jsonR) => {
+    getPlatos().then((jsonR) => {
       this.setState({
         menu_pop: jsonR,
       });
@@ -99,7 +104,7 @@ class Menu extends Component {
                     this.handleShow(items);
                   }}
                 >
-                  {items.nommbre_modal}
+                  {items.nombre}
                 </Button>
                 <p> {items.descripcion} </p>
                 <h5 id="precio"> $ {items.precio} COP</h5>
@@ -281,7 +286,7 @@ class Menu extends Component {
         >
           <Modal.Header id="modal-header">
             <Modal.Title id="title-h5">
-              {this.state.infomodal.nommbre_modal}
+              {this.state.infomodal.nombre}
             </Modal.Title>
             <button
               type="button"
