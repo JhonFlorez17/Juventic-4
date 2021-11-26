@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../App.css";
 import Number_carrito from "../components/number_carrito";
 import { Link } from "react-router-dom";
+import { getServicios } from "../request/probar";
 
 const items = [
   {
@@ -43,12 +44,28 @@ const items = [
 ];
 
 class Servicios extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      menu_pop: [],
+    };
+    this.load_servicios();
+  }
+
   componentDidMount() {
     window.scrollTo(0, 0);
   }
 
+  load_servicios() {
+    getServicios().then((jsonR) => {
+      this.setState({
+        menu_pop: jsonR,
+      });
+    });
+  }
+
   items_Ser() {
-    return items.map((item, i) => {
+    return this.state.menu_pop.map((item, i) => {
       return (
         <div class="col-lg-4 col-md-6 col-12" key={i}>
           <div class="blog-box-inner">
@@ -56,7 +73,7 @@ class Servicios extends Component {
               <div class="blog-img-box">
                 <img class="img-fluid" src={item.imagen} alt="" />
               </div>
-              <h4>{item.titulo}</h4>
+              <h4>{item.nombre}</h4>
               <p>{item.descripcion}</p>
               <Link
                 class="btn btn-lg btn-circle btn-outline-new-white"

@@ -11,6 +11,7 @@ import Confirm_cart from "./components/confirm_cart";
 import Admin from "./components/admin";
 import Confirma_Reservas from "./components/confirmacion_reservas";
 import Platosadmin from "./components/paneladmin/platosadmin";
+import Serviciosadmin from "./components/paneladmin/serviciosadmin";
 import { BrowserRouter as Routers, Switch, Route } from "react-router-dom";
 
 class Router extends Component {
@@ -28,6 +29,7 @@ class Router extends Component {
             <Route path="/confirm" component={Confirm_cart}></Route>
             <Route path="/admin" component={Admin}></Route>
             <Route path="/adm/platos" component={Platosadmin}></Route>
+            <Route path="/adm/servicios" component={Serviciosadmin}></Route>
             <Route
               path="/Confirmacion_Reservas"
               component={Confirma_Reservas}

@@ -38,6 +38,8 @@ function getStaff() {
     });
 }
 
+/* -------------------------------------- */
+
 function getPlatos() {
   return fetch("http://localhost:64684/api/platos")
     .then((data) => {
@@ -92,6 +94,62 @@ function UpdatePlato(data) {
     });
 }
 
+/* ----------------------------------- */
+
+function getServicios() {
+  return fetch("http://localhost:64684/api/servicion")
+    .then((data) => {
+      return data.json();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function NewServicio(data) {
+  return fetch("http://localhost:64684/api/servicion", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((data) => {
+      return data.json();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function DeleteServicio(id) {
+  return fetch("http://localhost:64684/api/servicion/" + id, {
+    method: "DELETE",
+  })
+    .then((data) => {
+      return data.json();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function UpdateServicio(data) {
+  return fetch("http://localhost:64684/api/servicion/", {
+    method: "PUT",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((data) => {
+      return data.json();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
 export {
   getMenu,
   getBebidas,
@@ -101,4 +159,8 @@ export {
   NewPlato,
   DeletePlato,
   UpdatePlato,
+  getServicios,
+  NewServicio,
+  DeleteServicio,
+  UpdateServicio,
 };

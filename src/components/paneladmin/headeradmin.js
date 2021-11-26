@@ -57,7 +57,7 @@ class Headeradmin extends Component {
                   </LinkContainer>
                 </Nav.Item>
                 <Nav.Item as="li">
-                  <LinkContainer to="/servicios">
+                  <LinkContainer to="/adm/servicios">
                     <Nav.Link>Servicios</Nav.Link>
                   </LinkContainer>
                 </Nav.Item>
