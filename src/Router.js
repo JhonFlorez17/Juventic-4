@@ -12,6 +12,8 @@ import Admin from "./components/admin";
 import Confirma_Reservas from "./components/confirmacion_reservas";
 import Platosadmin from "./components/paneladmin/platosadmin";
 import Serviciosadmin from "./components/paneladmin/serviciosadmin";
+import Empleadosadmin from "./components/paneladmin/empleadosadmin";
+import Comentariosadmin from "./components/paneladmin/comentariosadmin";
 import { BrowserRouter as Routers, Switch, Route } from "react-router-dom";
 
 class Router extends Component {
@@ -30,6 +32,8 @@ class Router extends Component {
             <Route path="/admin" component={Admin}></Route>
             <Route path="/adm/platos" component={Platosadmin}></Route>
             <Route path="/adm/servicios" component={Serviciosadmin}></Route>
+            <Route path="/adm/empleados" component={Empleadosadmin}></Route>
+            <Route path="/adm/comentarios" component={Comentariosadmin}></Route>
             <Route
               path="/Confirmacion_Reservas"
               component={Confirma_Reservas}

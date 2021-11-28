@@ -66,6 +66,7 @@ class Header extends Component {
 
   cerrar_sesion() {
     localStorage.removeItem("admin_view");
+    localStorage.removeItem("rol");
     window.location.href = "/home";
   }
 
@@ -117,6 +118,7 @@ class Header extends Component {
       return <Nav.Link onClick={this.handleShow.bind(this)}>Login</Nav.Link>;
     }
   }
+
   render() {
     return (
       <header className="top-navbar">

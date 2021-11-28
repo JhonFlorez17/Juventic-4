@@ -10,6 +10,7 @@ class Headeradmin extends Component {
 
   cerrar_sesion() {
     localStorage.removeItem("admin_view");
+    localStorage.removeItem("rol");
     window.location.href = "/home";
   }
 
@@ -52,7 +53,7 @@ class Headeradmin extends Component {
                   </LinkContainer>
                 </Nav.Item>
                 <Nav.Item as="li">
-                  <LinkContainer to="/about">
+                  <LinkContainer to="/adm/empleados">
                     <Nav.Link eventKey="link-2">Empleados</Nav.Link>
                   </LinkContainer>
                 </Nav.Item>
@@ -62,13 +63,8 @@ class Headeradmin extends Component {
                   </LinkContainer>
                 </Nav.Item>
                 <Nav.Item as="li">
-                  <LinkContainer to="/reserva">
-                    <Nav.Link>Reservas</Nav.Link>
-                  </LinkContainer>
-                </Nav.Item>
-                <Nav.Item as="li">
-                  <LinkContainer to="/carrito">
-                    <Nav.Link>Pedidos</Nav.Link>
+                  <LinkContainer to="/adm/comentarios">
+                    <Nav.Link>Comentarios</Nav.Link>
                   </LinkContainer>
                 </Nav.Item>
                 <Nav.Item as="li">{this.render_boton_user()}</Nav.Item>

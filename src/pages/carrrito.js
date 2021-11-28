@@ -4,7 +4,15 @@ import "../App.css";
 import "./carrito.css";
 import "../../node_modules/alertifyjs/build/css/alertify.css";
 import "../../node_modules/alertifyjs/build/css/themes/semantic.css";
-import { Nav } from "react-bootstrap";
+import {
+  Nav,
+  Modal,
+  Form,
+  InputGroup,
+  Button,
+  FormControl,
+} from "react-bootstrap";
+import { NewComentario } from "../request/probar";
 import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 
@@ -17,10 +25,28 @@ class Carrito extends Component {
       items_cart: [],
       nombreCliente: "",
       correoCliente: "",
+      show: false,
+      nombre_cli: "",
+      imagen_cli: "",
+      profesion_cli: "",
+      comentario: "",
+      estado: "",
     };
 
     this.update_input = this.update_input.bind(this);
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleClose() {
+    this.setState({
+      show: false,
+    });
+  }
+
+  handleShow() {
+    this.setState({
+      show: true,
+    });
   }
 
   componentDidMount() {
@@ -164,6 +190,24 @@ class Carrito extends Component {
     localStorage.setItem("correoCliente", this.state.correoCliente);
   }
 
+  createComentario() {
+    const data = {
+      nombre_cli: this.state.nombre_cli,
+      imagen_cli: this.state.imagen_cli,
+      profesion_cli: this.state.profesion_cli,
+      comentario: this.state.comentario,
+    };
+
+    NewComentario(data)
+      .then((data) => {
+        console.log(data);
+        alertify.set("notifier", "position", "bottom-right");
+        alertify.success("Se agrego Con exito comentario Con exito");
+        this.handleClose();
+      })
+      .catch(console.log);
+  }
+
   render() {
     return (
       <>
@@ -184,6 +228,14 @@ class Carrito extends Component {
                   <h2 className="d-flex justify-content-center mb-3">
                     Finaliza tu compra
                   </h2>
+
+                  <button
+                    className="comprar"
+                    id="vaciar-Carrito"
+                    onClick={this.handleShow.bind(this)}
+                  >
+                    Agregar Comentario
+                  </button>
 
                   <div className="form-group row">
                     <label
@@ -282,6 +334,96 @@ class Carrito extends Component {
             </div>
           </div>
         </form>
+        <Modal
+          show={this.state.show}
+          onHide={this.handleClose.bind(this)}
+          centered
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Nuevo Comentario</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form
+              noValidate
+              validated={this.state.validated}
+              onSubmit={this.handleSubmit}
+            >
+              <InputGroup className="mb-3">
+                <FormControl
+                  placeholder="nombre"
+                  aria-label="nombre"
+                  aria-describedby="basic-addon1"
+                  name="nombre_cli"
+                  required
+                  defaultValue={this.state.nombre_cli}
+                  onChange={this.handleChange}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Por favor Ingresar Nombre
+                </Form.Control.Feedback>
+                <Form.Control.Feedback>Listo</Form.Control.Feedback>
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <FormControl
+                  placeholder="imagen"
+                  aria-label="imagen"
+                  aria-describedby="basic-addon1"
+                  name="imagen_cli"
+                  required
+                  defaultValue={this.state.imagen_cli}
+                  onChange={this.handleChange}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Por favor Ingresar Imagen
+                </Form.Control.Feedback>
+                <Form.Control.Feedback>Listo</Form.Control.Feedback>
+              </InputGroup>
+
+              <InputGroup className="mb-3">
+                <FormControl
+                  placeholder="profesion"
+                  aria-label="profesion"
+                  aria-describedby="basic-addon1"
+                  name="profesion_cli"
+                  required
+                  defaultValue={this.state.profesion_cli}
+                  onChange={this.handleChange}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Por favor Ingresar Profesion
+                </Form.Control.Feedback>
+                <Form.Control.Feedback>Listo</Form.Control.Feedback>
+              </InputGroup>
+
+              <InputGroup className="mb-3">
+                <FormControl
+                  placeholder="Comentario"
+                  aria-label="Comentario"
+                  aria-describedby="basic-addon1"
+                  name="comentario"
+                  required
+                  defaultValue={this.state.comentario}
+                  onChange={this.handleChange}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Por favor Ingresar Comentario
+                </Form.Control.Feedback>
+                <Form.Control.Feedback>Listo</Form.Control.Feedback>
+              </InputGroup>
+
+              <Modal.Footer>
+                <Button
+                  variant="secondary"
+                  onClick={() => {
+                    this.createComentario();
+                  }}
+                >
+                  Agregar
+                </Button>
+              </Modal.Footer>
+            </Form>
+          </Modal.Body>
+        </Modal>
       </>
     );
   }

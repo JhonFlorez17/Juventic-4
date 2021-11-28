@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     if (
       localStorage.getItem("admin_view") == null ||
-      localStorage.getItem("admin_view") === false
+      localStorage.getItem("rol") === "user"
     ) {
       return (
         <div>

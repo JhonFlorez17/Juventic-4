@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../App.css";
 import Comentarios from "../components/comentarios";
 import Contact from "../components/contact";
-import { getStaff } from "../request/probar";
+import { getEmpleado } from "../request/probar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
@@ -26,7 +26,7 @@ class About extends Component {
   }
 
   load_staff() {
-    getStaff().then((jsonR) => {
+    getEmpleado().then((jsonR) => {
       this.setState({
         staff: jsonR,
       });
